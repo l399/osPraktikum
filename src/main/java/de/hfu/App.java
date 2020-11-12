@@ -7,10 +7,10 @@ public class App {
 		Scanner t = new Scanner(System.in);
 		String eingabe;
 		
-        System.out.println("Geben Sie einen Text ein: ");
-		eingabe = t.nextLine();
+        System.out.println("Geben Sie einen Text ein: ");		//Ausgabe
+		eingabe = t.nextLine();									//Einlesen von String
 		
-		eingabe = eingabe.toUpperCase();
+		eingabe = eingabe.toUpperCase();						//String zu Grossbuchstaben
 		System.out.println(eingabe);
     }
 }
