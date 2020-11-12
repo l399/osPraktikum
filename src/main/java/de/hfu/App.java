@@ -1,3 +1,6 @@
+/**
+ * @author Leon Fleig
+ */
 package de.hfu;
 import java.util.Scanner;
 
