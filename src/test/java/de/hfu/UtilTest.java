@@ -5,16 +5,24 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class UtilTest {
-	@Test(expected=IllegalArgumentException.class, timeout=1000)
-	public void testWrongInput() {
-		Util.istErstesHalbjahr(14);
+	@Test(expected=IllegalArgumentException.class)
+	public void testWrongInputm() {
+		Util.istErstesHalbjahr(13);
+	}
+	@Test(expected=IllegalArgumentException.class)
+	public void testWrongInputl() {
+		Util.istErstesHalbjahr(0);
 	}
 	@Test
 	public void testNichtErstesHalbjahr() {
-		assertEquals(false, Util.istErstesHalbjahr(12));
+		for(int i=7; i<13; i++) {
+		assertFalse(Util.istErstesHalbjahr(i));
+		}
 	}
 	@Test
 	public void testErstesHalbjahr() {
-		assertEquals(true, Util.istErstesHalbjahr(1));
+		for(int i=1; i<7; i++) {
+			assertEquals(true, Util.istErstesHalbjahr(i));
+		}
 	}
 }
