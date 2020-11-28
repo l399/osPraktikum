@@ -67,6 +67,55 @@ public class Resident implements Serializable {
   public void setDateOfBirth(Date dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
   }
+
+@Override
+public int hashCode() {
+	final int prime = 31;
+	int result = 1;
+	result = prime * result + ((city == null) ? 0 : city.hashCode());
+	result = prime * result + ((dateOfBirth == null) ? 0 : dateOfBirth.hashCode());
+	result = prime * result + ((familyName == null) ? 0 : familyName.hashCode());
+	result = prime * result + ((givenName == null) ? 0 : givenName.hashCode());
+	result = prime * result + ((street == null) ? 0 : street.hashCode());
+	return result;
+}
+
+@Override
+public boolean equals(Object obj) {
+	if (this == obj)
+		return true;
+	if (obj == null)
+		return false;
+	if (getClass() != obj.getClass())
+		return false;
+	Resident other = (Resident) obj;
+	if (city == null) {
+		if (other.city != null)
+			return false;
+	} else if (!city.equals(other.city))
+		return false;
+	if (dateOfBirth == null) {
+		if (other.dateOfBirth != null)
+			return false;
+	} else if (!dateOfBirth.equals(other.dateOfBirth))
+		return false;
+	if (familyName == null) {
+		if (other.familyName != null)
+			return false;
+	} else if (!familyName.equals(other.familyName))
+		return false;
+	if (givenName == null) {
+		if (other.givenName != null)
+			return false;
+	} else if (!givenName.equals(other.givenName))
+		return false;
+	if (street == null) {
+		if (other.street != null)
+			return false;
+	} else if (!street.equals(other.street))
+		return false;
+	return true;
+}
   
   
   

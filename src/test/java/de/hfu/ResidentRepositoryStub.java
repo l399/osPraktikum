@@ -13,8 +13,10 @@ public class ResidentRepositoryStub implements ResidentRepository {
 
 	public ResidentRepositoryStub() {
 		super();
-		einwohner.add(new Resident("Leon", "Fleig", "Uhlandstrasse", "Deilingen", new Date()));
-		einwohner.add(new Resident("Leon", "Fleig", "Ringstrasse", "Deilingen", new Date()));
+		einwohner.add(new Resident("Leon", "Fleig", "Uhlandstrasse", "Deilingen", new Date(123456)));
+		einwohner.add(new Resident("Sina", "Fleig", "Ringstrasse", "Deilingen", new Date()));
+		einwohner.add(new Resident("Sina", "Schätzle", "Mühlstrasse", "Deilingen", new Date()));
+		einwohner.add(new Resident("Helga", "Fleig", "Silcherstrasse", "Deilingen", new Date()));
 	}
 
 	@Override
