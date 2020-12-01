@@ -11,6 +11,8 @@ import de.hfu.residents.domain.Resident;
 import de.hfu.residents.service.BaseResidentService;
 import de.hfu.residents.service.ResidentServiceException;
 
+
+
 public class ResidentStubTest {
 
 	@Test
@@ -37,7 +39,8 @@ public class ResidentStubTest {
 		
 		Resident f = new Resident();
 		f.setGivenName("Leon");
-		Resident test = new Resident("Leon", "Fleig", "Uhlandstrasse", "Deilingen", new Date(123456));
+		f.setDateOfBirth(new Date(123456));
+		Resident test = new Resident("Leon", "Fleig", "Uhlandstrasse", "Gosheim", new Date(123456));
 		
 		brs.setResidentRepository(r);
 		
@@ -47,13 +50,29 @@ public class ResidentStubTest {
 	}
 
 	@Test(expected=ResidentServiceException.class)
-	public void testWildcard() throws ResidentServiceException {
+	public void testWildcardName() throws ResidentServiceException {
 		BaseResidentService brs = new BaseResidentService();
 		ResidentRepositoryStub r = new ResidentRepositoryStub();
 		
 		Resident f = new Resident();
 		f.setGivenName("*");
-		Resident test = new Resident("Leon", "Fleig", "Uhlandstrasse", "Deilingen", new Date(123456));
+		Resident test = new Resident("Leon", "Fleig", "Uhlandstrasse", "Gosheim", new Date(123456));
+		
+		brs.setResidentRepository(r);
+		
+		Resident erg = brs.getUniqueResident(f);
+		assertEquals(test, erg);
+	}
+	
+	@Test(expected=ResidentServiceException.class)
+	public void testWildcardFamilyName() throws ResidentServiceException {
+		BaseResidentService brs = new BaseResidentService();
+		ResidentRepositoryStub r = new ResidentRepositoryStub();
+		
+		Resident f = new Resident();
+		f.setFamilyName("*");
+		
+		Resident test = new Resident("Sina", "Fleig", "Uhlandstrasse", "Gosheim", new Date(123456));
 		
 		brs.setResidentRepository(r);
 		
@@ -69,7 +88,7 @@ public class ResidentStubTest {
 		Resident f = new Resident();
 		f.setGivenName("Sina");
 		
-		Resident test = new Resident("Sina", "Fleig", "Uhlandstrasse", "Deilingen", new Date(123456));
+		Resident test = new Resident("Sina", "Fleig", "Uhlandstrasse", "Gosheim", new Date(123456));
 		
 		brs.setResidentRepository(r);
 		
