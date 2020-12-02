@@ -56,6 +56,7 @@ public class ResidentStubTest {
 		
 		Resident f = new Resident();
 		f.setGivenName("*");
+		
 		Resident test = new Resident("Leon", "Fleig", "Uhlandstrasse", "Gosheim", new Date(123456));
 		
 		brs.setResidentRepository(r);
